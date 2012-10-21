@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>MonkeySpace</string>
+	<string>CodeCampSDQ</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Resources/icon_57.png</string>
-		<string>Resources/icon_114.png</string>
-		<string>Resources/icon_72.png</string>
-		<string>Resources/icon_29.png</string>
-		<string>Resources/icon_58.png</string>
-		<string>Resources/icon_50.png</string>
+		<string>Resources/57x57_icon.png</string>
+		<string>Resources/114x114_icon.png</string>
+		<string>Resources/icon-72x72.png</string>
+		<string>Resources/Icon-29x29.png</string>
+		<string>Resources/Icon-58x58.png</string>
+		<string>Resources/Icon-50x50.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.confapp.monkeyspace</string>
+	<string>com.codecampsdq.confapp</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.0</string>
 	<key>MinimumOSVersion</key>
 	<string>5.0</string>
 	<key>SBUsesNetwork</key>
@@ -24,6 +24,7 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
+		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

@@ -44,7 +44,7 @@
     <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: Craig Dunn (6Q937X2U43)</CodesignKey>
+    <CodesignKey>iPhone Developer: Claudio Sanchez (JR4R8868QQ)</CodesignKey>
     <MtouchDebug>True</MtouchDebug>
     <MtouchI18n />
     <MtouchSdkVersion>6.0</MtouchSdkVersion>
@@ -52,8 +52,7 @@
     <CrashReportingApiKey />
     <AssemblyName>Monospace11</AssemblyName>
     <MtouchArch>ARMv7</MtouchArch>
-    <CodesignProvision>3F0D1957-1C46-4BFE-B3B6-26DA8D12A2B3</CodesignProvision>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>6D7DA6F9-EE2D-4697-B223-A6B9BBCF3BB0</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -68,7 +67,6 @@
     <MtouchArch>ARMv7</MtouchArch>
     <CodesignProvision>3F0D1957-1C46-4BFE-B3B6-26DA8D12A2B3</CodesignProvision>
     <IpaPackageName />
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|iPhone' ">
     <DebugType>none</DebugType>
@@ -83,7 +81,6 @@
     <MtouchArch>ARMv7</MtouchArch>
     <IpaPackageName />
     <CrashReportingApiKey />
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -131,6 +128,11 @@
       <Link>Core\SessionDatabase\SQLite.cs</Link>
     </Compile>
     <Compile Include="TabPassKit\PassKitViewController.cs" />
+    <Compile Include="ApplicationLayer\ConfererenceParametersManager.cs" />
+    <Compile Include="ApplicationLayer\IConfererenceParametersManager.cs" />
+    <Compile Include="ApplicationLayer\UIColorExtensions.cs" />
+    <Compile Include="ApplicationLayer\ConferenceParameters.cs" />
+    <Compile Include="ApplicationLayer\LocalizableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TabSessions\" />
@@ -146,10 +148,10 @@
     <Folder Include="Core\" />
     <Folder Include="Core\SessionDatabase\" />
     <Folder Include="TabPassKit\" />
+    <Folder Include="en.lproj\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\tabspeaker.png">
@@ -180,16 +182,15 @@
     <Content Include="Images\Monkey%402x.png" />
     <Content Include="Images\TicketIcon.png" />
     <Content Include="Images\TicketIcon%402x.png" />
+    <Content Include="en.lproj\Localizable.strings" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\icon_57.png" />
-    <BundleResource Include="Resources\icon_114.png" />
     <BundleResource Include="Resources\Default%402x.png" />
-    <BundleResource Include="Resources\icon_29.png" />
-    <BundleResource Include="Resources\icon_50.png" />
-    <BundleResource Include="Resources\icon_58.png" />
-    <BundleResource Include="Resources\icon_72.png" />
-    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\114x114_icon.png" />
+    <BundleResource Include="Resources\320x480_splash" />
+    <BundleResource Include="Resources\512x512_icon.png" />
+    <BundleResource Include="Resources\57x57_icon.png" />
+    <BundleResource Include="Resources\960x640_splash.png" />
   </ItemGroup>
 </Project>

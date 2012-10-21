@@ -63,7 +63,13 @@ namespace Monospace11
 					string host = request.Url.Host.ToLower ();
 					if (host == "tweet.mix10.app") {
 						var tweet = new TWTweetComposeViewController();
-						tweet.SetInitialText ("I'm in '" + DisplaySession.Title + "' at #monkeyspace" );
+
+						string tweetFormat  = "I'm in '{0}' en {1}";
+						string conferenceHash = "#CodeCampSDQ";
+
+						tweet.SetInitialText (string.Format(tweetFormat, DisplaySession.Title, conferenceHash));
+
+
 						PresentModalViewController(tweet, true);
 
 					} else if (host == "add.mix10.app") {

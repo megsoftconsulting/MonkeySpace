@@ -17,7 +17,7 @@ namespace MonkeySpace.Core
 		/// <summary>"sessions.json"</summary>
 		public static string JsonDataFilename = "sessions.json";
 
-		public static string SessionDataUrl = "http://monkeyspace.org/data/sessions.json";
+		public static string SessionDataUrl = "http://codecampsdq.com/serversessions.txt";
 
 		public static Dictionary<int, Session> Sessions = new Dictionary<int, Session>();
 

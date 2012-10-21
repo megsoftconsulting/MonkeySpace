@@ -7,6 +7,8 @@ using MonoTouch.Foundation;
 using System.Text;
 using System.Drawing;
 using System.Globalization;
+using MonoTouch.Dialog.Utilities;
+using MonkeySpace;
 
 namespace Monospace11
 {
@@ -24,7 +26,7 @@ namespace Monospace11
 			for (int i = 0; i <= days; i++)
 			{
 				//HACK: hardcoding is bad :-\
-				DayStarts [i] = new DateTime (2012, 10, 17+i);
+				DayStarts [i] = new DateTime (2012, 10,20 +i);
 			}
 		}
 		
@@ -33,13 +35,13 @@ namespace Monospace11
 		{	
 			if (date.Year == now.Year && date.Month == now.Month){
 				if (date.Day == now.Day)
-					return "Today";
+					return "Today".GetText();
 				if (date.AddDays (1).Day == now.Day)
-					return "Yesterday";
+					return "Yesterday".GetText();
 				if (date.AddDays (-1).Day == now.Day)
-					return "Tomorrow";
+					return "Tomorrow".GetText();
 			}
-			return date.ToString ("dddd");
+			return date.ToString ("dddd").GetText();
 		}
 
 		/// <summary>
@@ -55,17 +57,17 @@ namespace Monospace11
 				if (start.Day == now.Day)
 					date = ""; 
 				else if (start.Day == now.Day+1)
-					date = "tomorrow at";
+					date = "tomorrow at".GetText();
 				else
 					if (includeDayName)
 						date = start.ToString ("ddd MMM dd");
 					else
-						date = start.ToString ("MMM dd");
+					date = start.ToString ("MMM dd");
 			} else
 				if (includeDayName)
 					date = start.ToString ("ddd MMM dd");
 				else
-					date = start.ToString ("MMM dd");
+				date = start.ToString ("MMM dd");
 			
 			return String.Format ("{0}{1} {2} {3}", caption, caption != "" ? " " : "", date, start.ToString ("H:mm"));
 		}
@@ -113,7 +115,7 @@ namespace Monospace11
 				return false;
 			
 			var sschedule = new Section ();
-			var schedule = new RootElement ("Sessions") { sschedule };
+			var schedule = new RootElement ("Sessions".GetText()) { sschedule };
 			
 			foreach (var s in list)
 				sschedule.Add (new SessionElement (s));
@@ -177,7 +179,7 @@ namespace Monospace11
 		{
 			Console.WriteLine ("Show PassKit");
 			var pkvc = new PassKitViewController();
-			pkvc.Title = "Event Ticket";
+			pkvc.Title = "Event Ticket".GetText();
 			NavigationController.PushViewController (pkvc, true);
 		}
 
@@ -193,7 +195,7 @@ namespace Monospace11
 
 #if DEBUG
 			// TEST: this for testing only
-			//now = new DateTime(2012, 10, 19, 15, 45, 0);
+			//now = new DateTime(2012, 10, 20, 15, 45, 0);
 #endif
 
 			var nowStart = now.AddMinutes (now.Minute<30?-now.Minute:-(now.Minute-30)); // also helps (within 30 minutes bug)
@@ -205,7 +207,7 @@ namespace Monospace11
 				where s.Start <= now && now < s.End && (s.Start.Minute == 0 || s.Start.Minute == 30) // fix for short-sessions (which start at :05 after the hour)
 				select s;
 			 
-			var root = new RootElement ("MonkeySpace");
+			var root = new RootElement ("MonkeySpace".GetText());
 
 			// Added .ToString/Convert.ToDateTime 
 			// to avoid System.ExecutionEngineException: Attempting to JIT compile method 'System.Collections.Generic.GenericEqualityComparer`1<System.DateTime>:.ctor ()' while running with --aot-only.
@@ -218,23 +220,23 @@ namespace Monospace11
 
 			var upcoming = allUpcoming.FirstOrDefault ();
 			if (upcoming != null) { // after the last session
-				var haveNow = AppendSection (root, happeningNow, MakeCaption ("On Now", nowStart));
-				AppendSection (root, upcoming.Sessions, MakeCaption ("Up Next", new DateTime (upcoming.Start)));
+				var haveNow = AppendSection (root, happeningNow, MakeCaption ("On Now".GetText(), nowStart));
+				AppendSection (root, upcoming.Sessions, MakeCaption ("Up Next".GetText(), new DateTime (upcoming.Start)));
 	
 				// Get also the next slot
 				if (!haveNow){
 					upcoming = allUpcoming.Skip (1).FirstOrDefault ();
-					AppendSection (root, upcoming.Sessions, "Afterwards");
+					AppendSection (root, upcoming.Sessions, "Afterwards".GetText());
 				}
 			}
 
-			var full = new Section ("Full Schedule");
+			var full = new Section ("Full Schedule".GetText());
 			for (int i = 1; i < DayStarts.Length; i++)
 			{
 				full.Add (MakeSchedule (DayStarts [i-1]));
 			}
 
-			full.Footer = "Last updated: " + NSUserDefaults.StandardUserDefaults.StringForKey("LastUpdated");
+			full.Footer = "Last updated".GetText() + ": "+ NSUserDefaults.StandardUserDefaults.StringForKey("LastUpdated");
 
 			root.Add (full);
 			

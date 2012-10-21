@@ -10,6 +10,7 @@ using MonoTouch.ObjCRuntime;
 using System.Threading;
 using System.Diagnostics;
 using MonkeySpace.Core;
+using MonkeySpace;
 
 namespace Monospace11
 {
@@ -43,6 +44,8 @@ namespace Monospace11
 		TabBarController tabBarController;
 		public static UserDatabase UserData {get; private set;} 
 		public static ConferenceManager Conference { get; private set; }
+		public static IConferenceParametersManager ParametersManager {get;set;}
+		public ConferenceParameters ConferenceParameters {get;private set;}
 		string documentsPath;
 		string libraryPath;
 		string jsonPath;
@@ -61,6 +64,10 @@ namespace Monospace11
 			jsonPath = Path.Combine (libraryPath, ConferenceManager.JsonDataFilename); // 
 			UserData = new UserDatabase(Path.Combine (libraryPath, SqliteDataFilename));
 
+			ParametersManager = new ConfererenceParametersManager();
+			var conferenceParameters = ParametersManager.Load();
+		
+		
 			Conference = new ConferenceManager();
 			Conference.OnDownloadSucceeded += (jsonString) => {
 				File.WriteAllText (jsonPath, jsonString);
@@ -93,7 +100,7 @@ namespace Monospace11
 			tabBarController = new TabBarController ();
 
 			//#d4563e
-			UINavigationBar.Appearance.TintColor = new UIColor(212/255f, 86/255f, 62/255f, 1f);
+			UINavigationBar.Appearance.TintColor = UIColor.Clear.FromHex(0x164684);
 
 			// Create the main window and add the navigation controller as a subview
 			window = new UIWindow (UIScreen.MainScreen.Bounds);

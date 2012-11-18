@@ -46,7 +46,7 @@ namespace Monospace11
 					string host = request.Url.Host.ToLower ();
 					if (host == "tweet.mix10.app") {
 						var tweet = new TWTweetComposeViewController();
-						tweet.SetInitialText ("@" + path + " #monkeyspace" );
+						tweet.SetInitialText ("@" + path + " #CodeCampSDQ" );
 						viewController.PresentModalViewController(tweet, true);
 					} else if (host == "twitter.mix10.app") {
 						var nsurl = new NSUrl("twitter://user?screen_name="+viewController.speaker.TwitterHandle);
@@ -77,7 +77,8 @@ namespace Monospace11
 			sb.Append ("<h2>" + speaker.Name + "</h2>" + Environment.NewLine);
 
 			if (!string.IsNullOrEmpty (speaker.HeadshotUrl)) {
-				sb.Append ("<img height=160 width=160 align=right src='http://codecampsdq.com/wp-content/uploads/2012/09/Cropped_CodeCampSDQLogo.png?" + speaker.HeadshotUrl + "'>" + Environment.NewLine);
+				sb.Append (string.Format ("<img height=160 width=160 align=right src='{0}'>{1}"
+				                          ,speaker.HeadshotUrl, Environment.NewLine));
 			}
 
 			if (TWTweetComposeViewController.CanSendTweet) {

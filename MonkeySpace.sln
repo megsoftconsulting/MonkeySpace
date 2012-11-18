@@ -46,7 +46,7 @@ Global
 		{3FFBFFF8-5560-4EDE-82E5-3FFDFBBA8A50}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Android\Android.csproj
+		StartupItem = iOS\iOS.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None
@@ -61,7 +61,7 @@ Global
 		$4.MessageStyle = $5
 		$5.LineAlign = 0
 		$4.inheritsSet = Mono
-		description = Monospace 2012 Conference app for iPhone
+		description = "@Aplicación para la conferencia CodeCampSDQ.\nPara más información acuda a:\nhttp://codecampsdq.com "
 		version = 1.0
 	EndGlobalSection
 EndGlobal

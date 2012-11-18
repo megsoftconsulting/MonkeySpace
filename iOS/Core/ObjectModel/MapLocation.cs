@@ -18,8 +18,11 @@ namespace MonkeySpace.Core
 		         X = x;
 		         Y = y;
 		      }
-		      public double X { get; set; }
-		      public double Y { get; set; }
+			///<summary>Latitude</summary>
+			public double X { get; set; }
+			
+			///<summary>Longitude</summary>
+			public double Y { get; set; }
 		   }
 }
 

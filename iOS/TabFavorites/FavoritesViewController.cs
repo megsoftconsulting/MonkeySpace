@@ -7,6 +7,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
 using System.Diagnostics;
+using MonkeySpace;
 
 namespace Monospace11
 {
@@ -27,7 +28,7 @@ namespace Monospace11
 		RootElement GenerateRoot ()
 		{
 			var favs = AppDelegate.UserData.GetFavoriteCodes();
-			var root = 	new RootElement ("Favorites") {
+			var root = 	new RootElement ("Favorites".GetText()) {
 				from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList () //AppDelegate.ConferenceData.Sessions
 							where favs.Contains(s.Code )
 							group s by s.Start.Ticks into g
@@ -39,8 +40,20 @@ namespace Monospace11
 			
 			if(favs.Count == 0)
 			{
-				var section = new Section("Whoops, Star a few sessions first!");
+
+				/**
+				 * var logoView = new UIImageView(UIImage.FromFile("100x100_icon.png"));
+				logoView.Alpha = .5f;
+				logoView.Frame = new RectangleF(0,42,320,100);
+				NavigationController.NavigationBar.Layer.AddSublayer(logoView.Layer);
+		**/
+
+				var section = new Section("Whoops, Star a few sessions first!".GetText());
 				root.Add(section);
+
+
+
+
 			}
 			return root;
         }

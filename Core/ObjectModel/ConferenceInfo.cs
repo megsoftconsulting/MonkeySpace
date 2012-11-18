@@ -10,7 +10,12 @@ namespace MonkeySpace.Core
 
 		public string DisplayName {get;set;}
 		public string DisplayLocation {get;set;}
-		
+
+		public string SessionsDataUrl {get;set;}
+		public string ImagesUrl {
+			get;
+			set;
+		}
 		public string Code {get;set;}
 		public DateTime StartDate {get;set;}
 		public DateTime EndDate {get;set;}

@@ -16,17 +16,18 @@ namespace Monospace11
 	/// Yep, there is some dodgy hardcoding going on in here... date-wise...
 	/// </summary>
 	public partial class HomeViewController : DialogViewController {
-		const int days = 3;
+		static int days = 0;
 		static DateTime [] DayStarts;
 		
 		static HomeViewController ()
 		{
+
 			DayStarts = new DateTime [days+1];
-			
+
 			for (int i = 0; i <= days; i++)
 			{
 				//HACK: hardcoding is bad :-\
-				DayStarts [i] = new DateTime (2012, 10,20 +i);
+				DayStarts [i] = MonkeySpace.Core.ConferenceManager.ConferenceInfo.StartDate.AddDays(i);
 			}
 		}
 		
@@ -226,7 +227,16 @@ namespace Monospace11
 				// Get also the next slot
 				if (!haveNow){
 					upcoming = allUpcoming.Skip (1).FirstOrDefault ();
-					AppendSection (root, upcoming.Sessions, "Afterwards".GetText());
+
+					IEnumerable<MonkeySpace.Core.Session> upcomingSessions;
+					if(upcoming != null && upcoming.Sessions != null) 
+					{
+						upcomingSessions = upcoming.Sessions.AsEnumerable();
+						AppendSection (root,  upcomingSessions , "Afterwards".GetText());
+
+					}
+
+				
 				}
 			}
 

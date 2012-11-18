@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Diagnostics;
+using MonkeySpace;
 
 namespace Monospace11
 {
@@ -17,20 +18,21 @@ namespace Monospace11
 		{
 			FlipController = mfvc;
 			locations = new List<MonkeySpace.Core.MapLocation> () {
-				new MonkeySpace.Core.MapLocation{Title="MonkeySpace", Location=new MonkeySpace.Core.Point{X=-71.08363940740965,Y=42.36100515974955}}
-				,new MonkeySpace.Core.MapLocation{Title="Party: The Meadhall", Location=new MonkeySpace.Core.Point{X=-71.087109,Y=42.363368}}
+				new MonkeySpace.Core.MapLocation{Title="MonkeySpace".GetText(), Location=new MonkeySpace.Core.Point{X=-71.08363940740965,Y=42.36100515974955}
+				}
+
 			};
-			locations.Add(new MonkeySpace.Core.MapLocation{Title="My location", Location=new MonkeySpace.Core.Point{X=0,Y=0}});
+			locations.Add(new MonkeySpace.Core.MapLocation{Title="My location".GetText(), Location=new MonkeySpace.Core.Point{X=0,Y=0}});
 		}
 		
 		public override void ViewDidLoad ()
         {
             base.ViewDidLoad ();
 			navBar = new UINavigationBar();
-			navBar.PushNavigationItem (new UINavigationItem("Choose Location"), false);
+			navBar.PushNavigationItem (new UINavigationItem("Choose Location".GetText()), false);
 			navBar.BarStyle = UIBarStyle.Black;
 			navBar.Frame = new RectangleF(0,0,this.View.Frame.Width,45);
-			navBar.TopItem.RightBarButtonItem = new UIBarButtonItem("Done",UIBarButtonItemStyle.Bordered, delegate {FlipController.Flip();});
+			navBar.TopItem.RightBarButtonItem = new UIBarButtonItem("Done".GetText(),UIBarButtonItemStyle.Bordered, delegate {FlipController.Flip();});
 			tableView.TableHeaderView = navBar;
 			tableView.Source = new TableViewSource(this, locations);
 		}

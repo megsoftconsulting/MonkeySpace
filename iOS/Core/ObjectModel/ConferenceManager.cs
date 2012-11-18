@@ -14,10 +14,11 @@ namespace MonkeySpace.Core
 		public Action<string> OnDownloadFailed;
 		bool isDownloading = false;
 
-		/// <summary>"sessions.json"</summary>
-		public static string JsonDataFilename = "sessions.json";
+		public static ConferenceInfo ConferenceInfo;
 
-		public static string SessionDataUrl = "http://codecampsdq.com/serversessions.txt";
+		public static string LocalJsonDataFilename = "sessions.json";
+
+		public static string SessionDataUrl = "http://codecampsdq.com/data/2012/Sessions.txt";
 
 		public static Dictionary<int, Session> Sessions = new Dictionary<int, Session>();
 
@@ -26,6 +27,18 @@ namespace MonkeySpace.Core
 		public static DateTime LastUpdated { get; private set; }
 
 		public static String LastUpdatedDisplay {get{return LastUpdated.ToString("yyyy-MM-dd HH:mm:ss");}}
+
+		public ConferenceManager ()
+		{
+			//TODO: Load from File/WebService/Other repository	
+			ConferenceInfo = new MonkeySpace.Core.ConferenceInfo { 
+					DisplayName ="CodeCampSDQ", 
+					StartDate=new DateTime(2012,12,1,8,30,0),
+				EndDate = new DateTime(2012,12,1,18,0,0), 
+				SessionsDataUrl = "http://codecampsdq.com/data/2012/",  // Low Tech Web Services
+				ImagesUrl = "http://codecampsdq.com/data/2012/images/speakers/"
+			};
+		}
 
 		public static bool LoadFromString (string jsonString)
 		{
@@ -93,11 +106,11 @@ namespace MonkeySpace.Core
 		[Obsolete("System.IO dependency breaks WP7")]
 		public static void LoadFromFile ()
 		{
-			string xmlPath = JsonDataFilename;
+			string xmlPath = LocalJsonDataFilename;
 			var basedir = Environment.GetFolderPath (System.Environment.SpecialFolder.Personal);
 
-			if (File.Exists (Path.Combine (basedir, JsonDataFilename))) {	// load a downloaded copy
-				xmlPath = Path.Combine (basedir, JsonDataFilename);
+			if (File.Exists (Path.Combine (basedir, LocalJsonDataFilename))) {	// load a downloaded copy
+				xmlPath = Path.Combine (basedir, LocalJsonDataFilename);
 			}
 		
 			var jsonString = File.ReadAllText(xmlPath);

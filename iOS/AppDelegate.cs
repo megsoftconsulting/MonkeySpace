@@ -49,7 +49,7 @@ namespace Monospace11
 		string documentsPath;
 		string libraryPath;
 		string jsonPath;
-		/// <summary>userdata.db</summary>
+		/// <summary>Stores the name of the local database file, named userdata.db</summary>
 		static string SqliteDataFilename = "userdata.db";
 		
 		/// <summary>
@@ -60,9 +60,10 @@ namespace Monospace11
         {
 			documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
 			libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
-			var builtInJsonPath = Path.Combine (System.Environment.CurrentDirectory, ConferenceManager.JsonDataFilename);
-			jsonPath = Path.Combine (libraryPath, ConferenceManager.JsonDataFilename); // 
+			var builtInJsonPath = Path.Combine (System.Environment.CurrentDirectory, ConferenceManager.LocalJsonDataFilename);
+			jsonPath = Path.Combine (libraryPath, ConferenceManager.LocalJsonDataFilename); // 
 			UserData = new UserDatabase(Path.Combine (libraryPath, SqliteDataFilename));
+
 
 			ParametersManager = new ConfererenceParametersManager();
 			var conferenceParameters = ParametersManager.Load();
@@ -70,7 +71,9 @@ namespace Monospace11
 		
 			Conference = new ConferenceManager();
 			Conference.OnDownloadSucceeded += (jsonString) => {
+				// Save the payload to the local file system.
 				File.WriteAllText (jsonPath, jsonString);
+			
 				NSUserDefaults.StandardUserDefaults.SetString(ConferenceManager.LastUpdatedDisplay, "LastUpdated");
 
 				Console.WriteLine("Local json file updated " + jsonPath);
@@ -88,10 +91,19 @@ namespace Monospace11
 				//jsonPath = builtInJsonPath; // use the bundled file
 				NSUserDefaults.StandardUserDefaults.SetString("2012-09-15 15:15:15", "LastUpdated");
 
+				try {
 				File.Copy (builtInJsonPath, jsonPath); // so it is there for loading
+				}
+				catch(FileNotFoundException fileNotFound)
+				{
+					throw new ApplicationException(
+						string.Format("Make sure there is a sessions file named {0} embedded in your app, and it is named correctly.",
+					              ConferenceManager.LocalJsonDataFilename)
+						,fileNotFound);
+				}
 			}
-			json = File.ReadAllText(jsonPath);
 
+			json = File.ReadAllText(jsonPath);
 			MonkeySpace.Core.ConferenceManager.LoadFromString (json);
 
 			#endregion

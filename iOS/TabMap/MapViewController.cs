@@ -7,6 +7,7 @@ using MonoTouch.UIKit;
 using MonoTouch.MapKit;  // required
 using MonoTouch.CoreLocation;  // required
 using System.Diagnostics;
+using MonkeySpace;
 
 using MonkeySpace.Core;
 
@@ -25,7 +26,9 @@ namespace Monospace11
 		public MapViewController (MapFlipViewController mfvc):base()
 		{
 			_mfvc = mfvc;
-			var l = new MonkeySpace.Core.MapLocation() {Title="MonkeySpace", Location=new MonkeySpace.Core.Point{X=-71.08363940740965,Y=42.36100515974955}};
+			var l = new MonkeySpace.Core.MapLocation() {
+				Title="MonkeySpace".GetText(), 
+				Location=new MonkeySpace.Core.Point{Y=18.487918,X=-69.961857}};  //18.487918,-69.961857
 			ConferenceLocation = l.Location.To2D();
 		}
 		
@@ -41,7 +44,7 @@ namespace Monospace11
 				}
 				{	// catch a possible null reference that i saw once [CD]
 					targetLocation = locationManager.Location.Coordinate;
-					ConferenceAnnotation a = new ConferenceAnnotation(targetLocation, "My location", "");
+					ConferenceAnnotation a = new ConferenceAnnotation(targetLocation, "My location".GetText(), "");
 					mapView.AddAnnotationObject(a); 
 				}
 			}
@@ -77,9 +80,9 @@ namespace Monospace11
 			var segmentedControl = new UISegmentedControl();
 			var topOfSegement = View.Frame.Height - 120;
 			segmentedControl.Frame = new RectangleF(20, topOfSegement, 282, 30);
-			segmentedControl.InsertSegment("Map", 0, false);
-			segmentedControl.InsertSegment("Satellite", 1, false);
-			segmentedControl.InsertSegment("Hybrid", 2, false);
+			segmentedControl.InsertSegment("Map".GetText(), 0, false);
+			segmentedControl.InsertSegment("Satellite".GetText(), 1, false);
+			segmentedControl.InsertSegment("Hybrid".GetText(), 2, false);
 			segmentedControl.SelectedSegment = 0;
 			segmentedControl.ControlStyle = UISegmentedControlStyle.Bar;
 			segmentedControl.TintColor = UIColor.DarkGray;
@@ -106,8 +109,8 @@ namespace Monospace11
 			mapView.SetRegion(region, true);
 			
 			ConferenceAnnotation a = new ConferenceAnnotation(ConferenceLocation
-                                , "MonkeySpace"
-                                , "NERD Center"
+                                , "CodeCampSDQ"
+                                , "INTEC"
                               );
 			mapView.AddAnnotationObject(a); 
 			
@@ -192,9 +195,10 @@ namespace Monospace11
 				//MKCoordinateRegion region = new MKCoordinateRegion(newLocation.Coordinate,span);
 				//_appd.mylocation = newLocation;
 				//_mapview.SetRegion(region, true);
-				double distanceToConference = MapHelper.Distance (new Coordinate(_appd.ConferenceLocation), new Coordinate(newLocation.Coordinate), UnitsOfLength.Miles);
+				double distanceToConference = MapHelper.Distance (new Coordinate(_appd.ConferenceLocation), new Coordinate(newLocation.Coordinate), UnitsOfLength.Miles); //TODO: Make this Configurable
+				string distanceMessage  = "XUnitsFromConference".GetText();
 				_appd.labelDistance.TextAlignment = UITextAlignment.Center;
-				_appd.labelDistance.Text = String.Format("{0} miles from MonkeySpace!", Math.Round(distanceToConference,0));
+				_appd.labelDistance.Text = String.Format(distanceMessage, Math.Round(distanceToConference,0));
 				Debug.WriteLine("Distance: {0}", distanceToConference);
 				
 				// only use the first result

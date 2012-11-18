@@ -6,8 +6,8 @@
 "Map" = "Mapa";
 "Today" ="Hoy";
 "Yesterday"= "Ayer";
-"Tomorrow" = "Maǹana";
-"tomorrow at" = "maǹana a las";
+"Tomorrow" = "Mañana";
+"tomorrow at" = "mañana a las";
 "Monday" = "Lunes";
 "Tuesday" = "Martes";
 "Wednesday" ="Miercoles";
@@ -22,6 +22,9 @@
 "MonkeySpace" ="CodeCampSDQ";
 "Last updated" = "Ultima actualización";
 "All Sessions" = "Todas las Charlas";
+"XUnitsFromConference" ="{0} kilometros de CodeCampSDQ";
+"My location" ="Mi Posición";
+"Whoops, Star a few sessions first!"= "Primero marque algunas charlas como favoritas";
 
 
 

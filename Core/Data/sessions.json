@@ -1,22 +1,22 @@
 [
 {
 "id":0,
-"title":"Creando apps para iPad/iPhone con .NET",
-"abstract":"Esta presentación introduce como desarrollar aplicaciones para iOS (iPad/iPhone/iPod) utilizando las capacidades de la plataforma y el lenguaje más maravilloso de la bolita del mundo!! (.NET/C#, por si cabe alguna duda).\r\nEl valor de reutilizar la mayoría de los conocimientos y técnicas utilizadas en el desarrollo de aplicaciones en .NET ahora está disponible en tu dispositivo favorito, sin necesidad de comprometer la funcionalidad utilizando frameworks que hacen “magia” creando UIs en HTML para simular las interfaces nativas.",
-"speakers":[
-			{"id":9,
-			"name":"Claudio Sanchez",
-			"twitterHandle":"claudioasanchez",
-			"bio":"Claudio es un Architecto de software, con un interés particular en 'incrementar la cantidad de trabajo no hecho' – Lease no reinventar la rueda – con la utilización de mejores practicas en diseño de software. Claudio ha trabajado con el .NET Framework desde su incepción en la versión 1.0. Algunas de las tecnologías que El utiliza a diario son incluyen: C#, MVVM, Silverlight, WCF, Windows Identity Foundation & SOA.",
-			"headshotUrl":"/images/speakers/claudiosanchez.jpg"
-			}
-			],
-"begins":"2012-10-20T10:15:00.0000000-04:00",
-"ends":"2012-10-20T11:15:00.0000000-04:00",
-"location":"Salón A"
+"title":"Registro",
+"abstract":"Registro del evento.",
+"begins":"2012-12-01T08:30:00.0000000-04:00",
+"ends":"2012-12-01T09:15:00.0000000-04:00",
+"location":"Sala A"
 },
 {
 "id":1,
+"title":"Keynote",
+"abstract":"Keynote",
+"begins":"2012-12-01T08:30:00.0000000-04:00",
+"ends":"2012-12-01T09:15:00.0000000-04:00",
+"location":"Sala A"
+},
+{
+"id":10,
 "title":"Creando apps para iPad/iPhone con .NET",
 "abstract":"Esta presentación introduce como desarrollar aplicaciones para iOS (iPad/iPhone/iPod) utilizando las capacidades de la plataforma y el lenguaje más maravilloso de la bolita del mundo!! (.NET/C#, por si cabe alguna duda).\r\nEl valor de reutilizar la mayoría de los conocimientos y técnicas utilizadas en el desarrollo de aplicaciones en .NET ahora está disponible en tu dispositivo favorito, sin necesidad de comprometer la funcionalidad utilizando frameworks que hacen “magia” creando UIs en HTML para simular las interfaces nativas.",
 "speakers":[
@@ -24,11 +24,27 @@
 			"name":"Claudio Sanchez",
 			"twitterHandle":"claudioasanchez",
 			"bio":"Claudio es un Architecto de software, con un interés particular en 'incrementar la cantidad de trabajo no hecho' – Lease no reinventar la rueda – con la utilización de mejores practicas en diseño de software. Claudio ha trabajado con el .NET Framework desde su incepción en la versión 1.0. Algunas de las tecnologías que El utiliza a diario son incluyen: C#, MVVM, Silverlight, WCF, Windows Identity Foundation & SOA.",
-			"headshotUrl":"/images/speakers/claudiosanchez.jpg"
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/ClaudioSanchez.jpg"
 			}
 			],
-"begins":"2012-10-20T10:15:00.0000000-04:00",
+"begins":"2012-12-01T10:15:00.0000000-04:00",
 "ends":"2012-10-20T11:15:00.0000000-04:00",
-"location":"Salón B"
+"location":"Sala A"
+},
+{
+"id":11,
+"title":"Creando aplicaciones con ASP.NET MVC",
+"abstract":"Introducción a la creación de aplicaciones con el framework de ASP.NET MVC.",
+"speakers":[
+			{"id":2,
+			"name":"Caupolicán Nuñez",
+			"twitterHandle":"caupolican",
+			"bio":"Caupolicán es un virtuoso de la programación. Cuando no está remodelando su casa – por que hasta albañíl es – dedica su tiempo a crear aplicaciones móviles en Android & iPhone/iPad.",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/ClaudioSanchez.jpg"
+			}
+			],
+"begins":"2012-12-01T10:15:00.0000000-04:00",
+"ends":"2012-12-01T11:15:00.0000000-04:00",
+"location":"Sala B"
 }
 ]

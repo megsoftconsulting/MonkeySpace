@@ -3,6 +3,7 @@
 "id":0,
 "title":"Registro",
 "abstract":"Registro del evento.",
+"speakers":[],
 "begins":"2012-12-01T08:30:00.0000000-04:00",
 "ends":"2012-12-01T09:15:00.0000000-04:00",
 "location":"Sala A"
@@ -11,8 +12,9 @@
 "id":1,
 "title":"Keynote",
 "abstract":"Keynote",
-"begins":"2012-12-01T08:30:00.0000000-04:00",
-"ends":"2012-12-01T09:15:00.0000000-04:00",
+"speakers":[],
+"begins":"2012-12-01T09:15:00.0000000-04:00",
+"ends":"2012-12-01T10:15:00.0000000-04:00",
 "location":"Sala A"
 },
 {
@@ -28,23 +30,111 @@
 			}
 			],
 "begins":"2012-12-01T10:15:00.0000000-04:00",
-"ends":"2012-10-20T11:15:00.0000000-04:00",
+"ends":"2012-10-20T11:45:00.0000000-04:00",
 "location":"Sala A"
 },
 {
 "id":11,
-"title":"Creando aplicaciones con ASP.NET MVC",
-"abstract":"Introducción a la creación de aplicaciones con el framework de ASP.NET MVC.",
+"title":"Android Development with C# & Mono for Android",
+"abstract":"",
 "speakers":[
 			{"id":2,
 			"name":"Caupolicán Nuñez",
 			"twitterHandle":"caupolican",
 			"bio":"Caupolicán es un virtuoso de la programación. Cuando no está remodelando su casa – por que hasta albañíl es – dedica su tiempo a crear aplicaciones móviles en Android & iPhone/iPad.",
-			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/ClaudioSanchez.jpg"
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/CaupolicanNunez.png"
+			}
+			],
+"begins":"2012-12-01T13:15:00.0000000-04:00",
+"ends":"2012-12-01T14:45:00.0000000-04:00",
+"location":"Sala A"
+},
+{
+"id":12,
+"title":"Utilizando SignalR para crear aplicaciones de Tiempo Real.",
+"abstract":"",
+"speakers":[
+			{"id":3,
+			"name":"Alexander Matos",
+			"twitterHandle":"",
+			"bio":"",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
 			}
 			],
 "begins":"2012-12-01T10:15:00.0000000-04:00",
-"ends":"2012-12-01T11:15:00.0000000-04:00",
+"ends":"2012-12-01T11:45:00.0000000-04:00",
+"location":"Sala B"
+},
+{
+"id":13,
+"title":"Windows Azure: Mobile Services.",
+"abstract":"Windows Azure: Mobile Services.",
+"speakers":[
+			{"id":4,
+			"name":"Gregory Pilar",
+			"twitterHandle":"",
+			"bio":"",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			}
+			],
+"begins":"2012-12-01T10:15:00.0000000-04:00",
+"ends":"2012-12-01T11:45:00.0000000-04:00",
+"location":"FD-412"
+},
+{"id":14,
+"title":"Almuerzo",
+"abstract":"",
+"speakers":[],
+"begins":"2012-12-01T11:45:00.0000000-04:00",
+"ends":"2012-12-01T13:15:00.0000000-04:00",
+"location":"TBD"
+},
+{
+"id":15,
+"title":"Desarrollo Rapido de Aplicaciones usando LightSwitch",
+"abstract":"",
+"speakers":[
+			{"id":3,
+			"name":"Alexander Matos",
+			"twitterHandle":"",
+			"bio":"",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			}
+			],
+"begins":"2012-12-01T13:15:00.0000000-04:00",
+"ends":"2012-12-01T14:45:00.0000000-04:00",
+"location":"Sala B"
+},
+{
+"id":16,
+"title":"Ruby On Rails",
+"abstract":"",
+"speakers":[
+			{"id":5,
+			"name":"Hector Minaya",
+			"twitterHandle":"",
+			"bio":"",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			}
+			],
+"begins":"2012-12-01T13:15:00.0000000-04:00",
+"ends":"2012-12-01T14:45:00.0000000-04:00",
+"location":"Sala B"
+},
+{
+"id":17,
+"title":"Introducción a la robotica con microprocesadores",
+"abstract":"",
+"speakers":[
+			{"id":6,
+			"name":"Edwin Perez",
+			"twitterHandle":"",
+			"bio":"",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			}
+			],
+"begins":"2012-12-01T13:15:00.0000000-04:00",
+"ends":"2012-12-01T14:45:00.0000000-04:00",
 "location":"Sala B"
 }
 ]

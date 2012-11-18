@@ -42,13 +42,7 @@ namespace MonkeySpace.Core
 
 		public string LocationDisplay {
 			get {
-				if (Location.ToLower ().Contains ("tbd") 
-				    || Location.ToLower ().Contains ("room")
-				    || Location.ToLower ().Contains ("hall")
-				    || Title.ToLower ().Contains ("party"))
-					return Location;
-				else
-					return Location + " room";
+				return Location;
 			}
 		}
 

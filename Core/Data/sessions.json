@@ -57,8 +57,8 @@
 			{"id":3,
 			"name":"Alexander Matos",
 			"twitterHandle":"",
-			"bio":"",
-			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			"bio":"Alexander Matos es un amante de la informatica y especialista en tecnologías .NET. Ha trabajo para empresas grandes como IBM y Bancredito y últimamente se dedica a la capacitación en diferentes tecnologias de punta (ASP.NET MVC, LightSwitch, Silverlight, EF) . En tu tiempo libre, es le “mete mano” a la carpintería, mecánica y otros proyectos de “Do it Yourself” (DYI).",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/alexandermatos.png"
 			}
 			],
 "begins":"2012-12-01T10:15:00.0000000-04:00",
@@ -68,13 +68,13 @@
 {
 "id":13,
 "title":"Windows Azure: Mobile Services.",
-"abstract":"Windows Azure: Mobile Services.",
+"abstract":"Las aplicaciones con  ya no son lo que eran antes…; las aplicaciones sin los datos no son aplicaciones, y los datos necesitan compartirse para ser útiles. Historiadamente utilizar un repositorio de datos online para las aplicaciones siempre ha sido complejo, para el Developer  representa un gran trabajo y no siempre con los mejores resultados. Pero Mobile Services ha  venido para simplificar el modo en que las aplicaciones consumen y generan datos y todo eso con el poder de la Windows Azure.",
 "speakers":[
 			{"id":4,
 			"name":"Gregory Pilar",
-			"twitterHandle":"",
-			"bio":"",
-			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			"twitterHandle":"gregorypilar",
+			"bio":"Software developer  evangelist ,early adopter technology, apasionado de la tecnologías de Microsoft, si  algo tiene código de por medio , eso le llama la atención. Tiene  6 años de experiencia en .Net, últimamente se ha especializado en Windows Phone 7 & 8, Windows 8 Y Windows Azure.",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/gregorypilar.png"
 			}
 			],
 "begins":"2012-12-01T10:15:00.0000000-04:00",
@@ -92,13 +92,13 @@
 {
 "id":15,
 "title":"Desarrollo Rapido de Aplicaciones usando LightSwitch",
-"abstract":"",
+"abstract":"Ligthswitch 2012 y el nuevo reto de Windows 8, empleo de RAD como estandarte de un nuevo esquema en el desarrollo de aplicaciones que brinden una vision a corto plazo del producto deseado. Se abarcarian temas sobre MVVM, OData Services, XAML, HTML5, Silverlight.",
 "speakers":[
 			{"id":3,
 			"name":"Alexander Matos",
 			"twitterHandle":"",
 			"bio":"",
-			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/alexandermatos.png"
 			}
 			],
 "begins":"2012-12-01T13:15:00.0000000-04:00",
@@ -114,7 +114,7 @@
 			"name":"Hector Minaya",
 			"twitterHandle":"",
 			"bio":"",
-			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/hectorminaya.jpg"
 			}
 			],
 "begins":"2012-12-01T13:15:00.0000000-04:00",
@@ -130,11 +130,77 @@
 			"name":"Edwin Perez",
 			"twitterHandle":"",
 			"bio":"",
-			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/notfound.jpg"
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/edwinperez.jpg"
 			}
 			],
 "begins":"2012-12-01T13:15:00.0000000-04:00",
 "ends":"2012-12-01T14:45:00.0000000-04:00",
+"location":"FD-414"
+},
+{
+"id":18,
+"title":"Creando Juegos para iOS con Cocos2D",
+"abstract":"Cocos2D es un framework popular para escribir juegos 2D, esto pone al alcance de todo el mundo la habilidad de crear y vender sus propios video juegos en la red. Esta librería le ayudará a crear juegos para iOS en lo que dicen 'Cirilo'",
+"speakers":[
+			{"id":7,
+			"name":"Welling Guzmán",
+			"twitterHandle":"",
+			"bio":"Welling es un Web developer (front-end & back-end) con conocimientos de WordPress, CodeIgniter y jQuery basado en la Republica Dominicana. El disfruta de la programación, la cual se ha convertido en su pasión. Welling comparte sus conocimientos vía videos tutoriales y escribiendo artículos. Welling tiene un interés en desarrollo de videojuegos y aplicaciones móviles.",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/WellingGuzman.png"
+			}
+			],
+"begins":"2012-12-01T15:00:00.0000000-04:00",
+"ends":"2012-12-01T16:30:00.0000000-04:00",
+"location":"Sala A"
+},
+{
+"id":19,
+"title":"Building a Windows 8 Store app from scratch",
+"abstract":"See how to build your first Windows 8 app. We will use what I learned when creating the app: .NET Gurus Can Cook, which contains recipes from famous folks in the software industry such as Scott Hanselman and Mary Jo Foley.",
+"speakers":[
+			{"id":8,
+			"name":"Russell Fustino",
+			"bio":"Russ Fustino heads up Developer Evangelism at ComponentOne as a Senior Developer Evangelist.  He is a highly experienced Windows Phone and Windows 8 software developer with a passion for conveying relevant, current, and future software development technologies and tools through live seminars, teaching, and internet video productions.  Russ has a new innovative blog and interview video series with influentials, about current technology, ComponentOne products and developer community called ‘Russ Cam’!  Check it out at http://gvtv.gcpowertools.com    … He has enlightened, entertained and educated over 200,000 developers nationwide as a former Developer Evangelist for Microsoft. Russ heads up 2 INETA user groups in the Tampa, Florida area: Windows Phone 7 (www.wp7ug.com ) and the Internet Media User Group (www.internetmug.com ) . Follow @RussCamTV",
+			"twitterHandle":"RussCamTV",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/RussellFustino.png"
+			}
+			],
+"begins":"2012-12-01T15:00:00.0000000-04:00",
+"ends":"2012-12-01T16:30:00.0000000-04:00",
 "location":"Sala B"
+},
+{
+"id":20,
+"title":"Será anunciada",
+"abstract":"",
+"speakers":[],
+"begins":"2012-12-01T15:00:00.0000000-04:00",
+"ends":"2012-12-01T16:30:00.0000000-04:00",
+"location":"FD-412"
+},
+{
+"id":21,
+"title":"Oracle JVM – Como usar tu código Java dentro de Oracle",
+"abstract":"Esta presentación introduce como correr código Java dentro de una base de datos Oracle. Analizaremos los puntos más importantes de Oracle Java Virtual Machine (OJVM), como crear un Java Stored Procedure, y como importar todas tus clases existentes anteriormente escritas en Java.",
+"speakers":[
+			{"id":9,
+			"name":"Juan Carlos Soto",
+			"twitterHandle":"",
+			"bio":"El Señor Soto es un Especialista en ETL y Business Intelligence con 12 años de experiencia en proyectos de datawarehousing utilizando Oracle como base de datos primaria. Su pasion es convertir complejas reglas de negocios en “simple” modelos y procesos de datos de alto rendimiento y escalabilidad. Entre las industrias con experiencia estan la hoteleria, banca, educacion y agencias gubernamentales. Juan es un Oracle PL/SQL Certified Associate, Ingeniero en Sistemas, y actualmente cursa la certificacion en Business Intelligence (CBIP) por la TDWI. Dentro de las tecnologias que utiliza a diario estan Oracle PL/SQL, T-SQL, Informatica, Talend, SSIS, Microstrategy, Java, XML, Web Services.",
+			"headshotUrl":"http://codecampsdq.com/data/2012/images/speakers/JuanCarlosSoto.png"
+			}
+			],
+"begins":"2012-12-01T15:00:00.0000000-04:00",
+"ends":"2012-12-01T16:30:00.0000000-04:00",
+"location":"FD-414"
+},
+{
+"id":22,
+"title":"Clausura del Evento",
+"abstract":"",
+"speakers":[],
+"begins":"2012-12-01T16:45:00.0000000-04:00",
+"ends":"2012-12-01T17:30:00.0000000-04:00",
+"location":"Sala A"
 }
 ]

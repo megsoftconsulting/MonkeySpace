@@ -61,7 +61,7 @@ Global
 		$4.MessageStyle = $5
 		$5.LineAlign = 0
 		$4.inheritsSet = Mono
-		description = "@Aplicación para la conferencia CodeCampSDQ.\nPara más información acuda a:\nhttp://codecampsdq.com "
+		description = Monospace 2012 Conference app for iPhone
 		version = 1.0
 	EndGlobalSection
 EndGlobal

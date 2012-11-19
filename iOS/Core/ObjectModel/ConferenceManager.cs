@@ -75,22 +75,30 @@ namespace MonkeySpace.Core
 						localSessions.Add (session.Id, session);
 						Console.WriteLine ("Session: " + session.Title);
 					
-						var jsonSpeakers = jsonSession ["speakers"];// as JsonValue;
-					
-						for (var k = 0; k < jsonSpeakers.Count; k++) {
-							var jsonSpeaker = jsonSpeakers [k]; // as JsonValue;
-							var speaker = new Speaker (jsonSpeaker);
+						try
+						{
+							var jsonSpeakers = jsonSession ["speakers"];// as JsonValue;
 						
-							if (!localSpeakers.ContainsKey (speaker.Id)) {
-								localSpeakers.Add (speaker.Id, speaker);
-							} else {
-								speaker = localSpeakers [speaker.Id];
+							for (var k = 0; k < jsonSpeakers.Count; k++) {
+								var jsonSpeaker = jsonSpeakers [k]; // as JsonValue;
+								var speaker = new Speaker (jsonSpeaker);
+							
+								if (!localSpeakers.ContainsKey (speaker.Id)) {
+									localSpeakers.Add (speaker.Id, speaker);
+								} else {
+									speaker = localSpeakers [speaker.Id];
+								}
+								speaker.Sessions.Add (session);
+								session.Speakers.Add (speaker);
+							
+								Console.WriteLine ("Speaker: " + speaker.Name);
 							}
-							speaker.Sessions.Add (session);
-							session.Speakers.Add (speaker);
-						
-							Console.WriteLine ("Speaker: " + speaker.Name);
 						}
+						catch (Exception)
+						{
+							Console.WriteLine("Missing Speaker Node");
+						}
+
 					}
 				}
 			} catch (Exception ex) {

@@ -48,11 +48,12 @@
     <MtouchDebug>True</MtouchDebug>
     <MtouchI18n />
     <MtouchSdkVersion>6.0</MtouchSdkVersion>
-    <IpaPackageName>C2SDQ</IpaPackageName>
+    <IpaPackageName>
+    </IpaPackageName>
     <CrashReportingApiKey />
     <AssemblyName>Monospace11</AssemblyName>
     <MtouchArch>ARMv7</MtouchArch>
-    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>6D7DA6F9-EE2D-4697-B223-A6B9BBCF3BB0</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -73,15 +74,15 @@
     <Optimize>False</Optimize>
     <OutputPath>bin\iPhone\Distribution</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchI18n />
-    <MtouchSdkVersion>6.0</MtouchSdkVersion>
+    <MtouchSdkVersion>4.2</MtouchSdkVersion>
     <AssemblyName>Monospace11</AssemblyName>
     <MtouchArch>ARMv7</MtouchArch>
-    <IpaPackageName>C2SDQ</IpaPackageName>
+    <IpaPackageName>
+    </IpaPackageName>
     <CrashReportingApiKey />
-    <BuildIpa>True</BuildIpa>
-    <MtouchLink>None</MtouchLink>
+    <CodesignProvision>0C6ABADA-F77C-404F-B7A1-6CBEF39A6A8D</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -193,14 +194,5 @@
     <BundleResource Include="Resources\512x512_icon.png" />
     <BundleResource Include="Resources\57x57_icon.png" />
     <BundleResource Include="Resources\960x640_splash.png" />
-    <BundleResource Include="Resources\29x29_icon.png" />
-    <BundleResource Include="Resources\50x50_icon.png" />
-    <BundleResource Include="Resources\58x58_icon.png" />
-    <BundleResource Include="Resources\100x100_icon.png" />
-    <BundleResource Include="Resources\144x144_icon.png" />
-    <BundleResource Include="Resources\72x72_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
 </Project>

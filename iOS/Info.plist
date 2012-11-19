@@ -8,12 +8,6 @@
 	<array>
 		<string>Resources/57x57_icon.png</string>
 		<string>Resources/114x114_icon.png</string>
-		<string>Resources/50x50_icon.png</string>
-		<string>Resources/58x58_icon.png</string>
-		<string>Resources/29x29_icon.png</string>
-		<string>Resources/100x100_icon.png</string>
-		<string>Resources/72x72_icon.png</string>
-		<string>Resources/144x144_icon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.codecampsdq.confapp</string>
@@ -31,6 +25,10 @@
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>

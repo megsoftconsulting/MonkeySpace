@@ -5,6 +5,8 @@ using System.Linq;
 using System.Xml.Serialization;
 using Android.App;
 using MonkeySpace.Core;
+using System.Net;
+using System.Text;
 
 namespace MonkeySpace
 {
@@ -13,12 +15,12 @@ namespace MonkeySpace
     {
         public static Conf Current { get; private set; }
 
-		public static UserDatabase UserData {get; private set;} 
+        public static UserDatabase UserData { get; private set; }
 
-		string docFolder;
+        string docFolder;
 
         public Conf(IntPtr handle, Android.Runtime.JniHandleOwnership transfer)
-            : base(handle,transfer)
+            : base(handle, transfer)
         {
             Current = this;
         }
@@ -27,34 +29,49 @@ namespace MonkeySpace
         {
             base.OnCreate();
 
-			docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var confFolder = System.IO.Path.Combine(docFolder, "monkeyspace12");
             if (!System.IO.Directory.Exists(confFolder))
                 System.IO.Directory.CreateDirectory(confFolder);
 
-			Console.WriteLine ("Data path:" + UserDatabase.DatabaseFilePath);
-			// setup SQLite for 'starred sessions' database
-			UserData = new UserDatabase(UserDatabase.DatabaseFilePath);
+            Console.WriteLine("Data path:" + UserDatabase.DatabaseFilePath);
+            // setup SQLite for 'starred sessions' database
+            UserData = new UserDatabase(UserDatabase.DatabaseFilePath);
 
-			var confFile = Path.Combine(confFolder, MonkeySpace.Core.ConferenceManager.JsonDataFilename);
-
-            if (!System.IO.File.Exists(confFile))
+            try
             {
-                var s = Resources.OpenRawResource(Resource.Raw.sessions);  // RESOURCE NAME ###
+                var confFile = Path.Combine(confFolder, MonkeySpace.Core.ConferenceManager.JsonDataFilename);
+   				if (!System.IO.File.Exists(confFile))
+            	{
+					MemoryStream stream = null;
+					
+					using (var webClient = new System.Net.WebClient())
+					{
+						var response = webClient.DownloadString(@"http://192.168.1.139/CodeCampApi/Session");
+						
+						byte[] byteArray = Encoding.ASCII.GetBytes( response );
+						stream = new MemoryStream( byteArray );
+					}
 
-                // create a write stream
-                FileStream writeStream = new FileStream(confFile, FileMode.OpenOrCreate, FileAccess.Write);
-                // write to the stream
-                ReadWriteStream(s, writeStream);
+					FileStream writeStream = new FileStream(confFile, FileMode.OpenOrCreate, FileAccess.Write);
+					// write to the stream
+					ReadWriteStream(stream, writeStream);
+				}
+				
+				var jsonString = System.IO.File.ReadAllText(confFile);
+
+				MonkeySpace.Core.ConferenceManager.LoadFromString(jsonString);
+				
+				DeserializeConferenceFile("");
+
+            }
+            catch (Exception e)
+            {
+                ///
             }
 
-			var jsonString = System.IO.File.ReadAllText (confFile);
-
-			MonkeySpace.Core.ConferenceManager.LoadFromString(jsonString);
-
-            DeserializeConferenceFile("");
-
         }
+
         // readStream is the stream you need to read
         // writeStream is the stream you want to write to
         private void ReadWriteStream(Stream readStream, Stream writeStream)
@@ -73,7 +90,6 @@ namespace MonkeySpace
         }
 
 
-
         public string CurrentConferenceCode
         {
             get { return "monkeyspace12"; }
@@ -83,68 +99,72 @@ namespace MonkeySpace
         /// A collection of 'favorite' sessions
         /// </summary>
         private List<MonkeySpace.Core.Session> favoriteSessions;// { get; private set; }
-		public List<MonkeySpace.Core.Session> FavoriteSessions // { get; set; }
-        {
-            get {
-				if (favoriteSessions == null){
-					var favs = UserData.GetFavoriteCodes();
-					favoriteSessions = (from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList () 
-					                    where favs.Contains(s.Code)
-					                    orderby s.Start.Ticks
-					                    select s).ToList();
-				}
 
-				return favoriteSessions;
-			}
+        public List<MonkeySpace.Core.Session> FavoriteSessions // { get; set; }
+        {
+            get
+            {
+                if (favoriteSessions == null)
+                {
+                    var favs = UserData.GetFavoriteCodes();
+                    favoriteSessions = (from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList()
+                                        where favs.Contains(s.Code)
+                                        orderby s.Start.Ticks
+                                        select s).ToList();
+                }
+
+                return favoriteSessions;
+            }
             set
             {
                 favoriteSessions = value;
             }
         }
-		public void UpdateFavorite (MonkeySpace.Core.Session session, bool isFavorite)
+
+        public void UpdateFavorite(MonkeySpace.Core.Session session, bool isFavorite)
         {
-			var isAlreadyFavorite = UserData.IsFavorite(session.Code);
+            var isAlreadyFavorite = UserData.IsFavorite(session.Code);
 
-			if (isAlreadyFavorite && isFavorite) return; // no change
-			if (!isAlreadyFavorite && !isFavorite) return; // no change
+            if (isAlreadyFavorite && isFavorite) return; // no change
+            if (!isAlreadyFavorite && !isFavorite) return; // no change
 
-			if (isFavorite)
-				UserData.AddFavoriteSession(session.Code);
-			else // not Favorite
-				UserData.RemoveFavoriteSession(session.Code);
+            if (isFavorite)
+                UserData.AddFavoriteSession(session.Code);
+            else // not Favorite
+                UserData.RemoveFavoriteSession(session.Code);
 
-			favoriteSessions = null; // so it gets reloaded next use
+            favoriteSessions = null; // so it gets reloaded next use
 
             // This updates the 'whats on next' with favourites (if required)
             LoadWhatsOn(CurrentConferenceCode);
         }
 
-		public List<DayConferenceViewModel> ScheduleItems { get; set; }
+        public List<DayConferenceViewModel> ScheduleItems { get; set; }
 
-		public ConferenceInfo ConfItem { get; set; }
+        public ConferenceInfo ConfItem { get; set; }
 
         public bool IsDataLoaded { get; private set; }
 
-
         void DeserializeConferenceFile(string xmlPath)
         {
-			ConfItem = new ConferenceInfo () {
-				StartDate = new DateTime(2012,10, 17),
-				EndDate = new DateTime(2012,10,19), 
-			};
+            ConfItem = new ConferenceInfo()
+            {
+                StartDate = new DateTime(2012, 10, 17),
+                EndDate = new DateTime(2012, 10, 19),
+            };
 
             //
             // ######   Load 'favorites'   ####
             //
-            var favPath = Path.Combine(docFolder, this.CurrentConferenceCode);
-            favPath = Path.Combine(favPath, "Favorites.xml");
+            //var favPath = Path.Combine(docFolder, this.CurrentConferenceCode);
+            //favPath = Path.Combine(favPath, "Favorites.xml");
 
             LoadWhatsOn(CurrentConferenceCode);
 
             IsDataLoaded = true;
         }
 
-        
+
         public void LoadWhatsOn(string currentConf)
         {
             Console.WriteLine("[Conf] LoadWhatsOn");
@@ -168,13 +188,13 @@ namespace MonkeySpace
                 nextStart = nextStart.AddSeconds(-nextStart.Second);
 
                 // sometimes the data might not have an 'end time', so we'll handle that by assuming 1 hour long sessions
-				var happeningNow = from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList ()
+                var happeningNow = from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList()
                                    where s.Start <= now
                                    && (now < (s.End == DateTime.MinValue ? s.Start.AddHours(1) : s.End))
                                    && (s.Start.Minute % 10 == 0 || s.Start.Minute % 15 == 0) // fix for short-sessions (which start at :05 after the hour)
                                    select s;
 
-				var allUpcoming = from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList ()
+                var allUpcoming = from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList()
                                   where s.Start >= nextStart && (s.Start.Minute % 10 == 0 || s.Start.Minute % 15 == 0) // (s.Start.Minute == 0 || s.Start.Minute == 30)
                                   orderby s.Start.Ticks
                                   group s by s.Start.Ticks into g
@@ -309,7 +329,7 @@ namespace MonkeySpace
 
             int NumberOfDays = days; // 3;
 
-			var sections = from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList ()
+            var sections = from s in MonkeySpace.Core.ConferenceManager.Sessions.Values.ToList()
                            where s.Start.Day == startDate.Day
                            orderby s.Start ascending
                            group s by s.Start.ToString() into g
@@ -332,7 +352,7 @@ namespace MonkeySpace
                 });
             }
 
-          
+
             ScheduleItems = temp;
         }
 

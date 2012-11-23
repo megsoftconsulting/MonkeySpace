@@ -3,14 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>C2SDQ</string>
+	<string>CodeCamp SDQ</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Resources/57x57_icon.png</string>
 		<string>Resources/114x114_icon.png</string>
+		<string>Resources/72x72_icon.png</string>
+		<string>Resources/144x144_icon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.codecampsdq.confapp</string>
+	<string>com.megsoft.codecampsdq</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>MinimumOSVersion</key>
